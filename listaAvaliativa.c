@@ -79,13 +79,10 @@ void trocarProprietario(No** lista, char chassi[20], char novoProprietario[50]) 
     No* atual = *lista;
 
     while (atual != NULL) {
-        // Verifica se o chassi atual começa com o chassi fornecido e se não possui dígito zero na placa
         if (strncmp(atual->veiculo.chassi, chassi, strlen(chassi)) == 0 &&
             strchr(atual->veiculo.placa, '0') == NULL) {
             strcpy(atual->veiculo.proprietario, novoProprietario);
             printf("\nProprietario trocado com sucesso.\n");
-
-            // Listar veículo atualizado
             listarVeiculo(atual->veiculo);
             return;
         }
